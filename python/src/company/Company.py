@@ -54,10 +54,11 @@ class Company:
         man = self._employee_book[manager_name]
         dr_list = man.get_direct_reports()
         result = [[man]]
-        result.append(dr_list)
+        if dr_list != []:
+            result.append(dr_list)
         for ele in dr_list:
             temp = ele.get_direct_reports()
-            if temp is not None and temp != []:
+            if temp != []:
                 result.append(temp)
         return result
 
